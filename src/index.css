@@ -1,0 +1,120 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html {
+  scroll-behavior: smooth;
+}
+
+html, body, #root {
+  min-height: 100%;
+}
+
+body {
+  background-color: #FAF7F1;
+  color: #1C1B19;
+  transition: background-color 0.25s ease, color 0.25s ease;
+  font-family: '"IBM Plex Sans"', system-ui, sans-serif;
+}
+
+/* Dark mode root styles */
+.dark body {
+  background-color: #0F172A;
+  color: #F8FAFC;
+}
+
+/* Accessible focus ring */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible {
+  outline: 2px solid #2F5D50;
+  outline-offset: 2px;
+}
+
+.dark a:focus-visible,
+.dark button:focus-visible,
+.dark input:focus-visible,
+.dark select:focus-visible,
+.dark textarea:focus-visible {
+  outline: 2px solid #34D399;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.001ms !important;
+    transition-duration: 0.001ms !important;
+  }
+}
+
+/* Code block highlight styling */
+.prose pre {
+  background: #1C1B19;
+  color: #F3F0E8;
+  border-radius: 0.5rem;
+}
+.dark .prose pre {
+  background: #020617;
+  color: #E2E8F0;
+  border: 1px solid #334155;
+}
+.prose pre code {
+  background: transparent;
+  color: inherit;
+}
+.hljs-keyword, .hljs-selector-tag, .hljs-literal { color: #F2B0A0; }
+.hljs-string, .hljs-attr { color: #B7D6A3; }
+.hljs-comment { color: #8A8578; font-style: italic; }
+.hljs-title, .hljs-name, .hljs-function { color: #E8C97A; }
+.hljs-number { color: #9AC7D6; }
+
+.editor-textarea {
+  font-family: '"IBM Plex Mono"', monospace;
+  line-height: 1.65;
+  tab-size: 2;
+}
+
+/* Skeleton Loading Shimmer */
+.skeleton {
+  background: linear-gradient(90deg, #E8E3D7 25%, #F4EFE6 50%, #E8E3D7 75%);
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite linear;
+}
+
+.dark .skeleton {
+  background: linear-gradient(90deg, #1E293B 25%, #334155 50%, #1E293B 75%);
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite linear;
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: 200% 0;
+  }
+  100% {
+    background-position: -200% 0;
+  }
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 7px;
+  height: 7px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: #D1C7B7;
+  border-radius: 9999px;
+}
+.dark ::-webkit-scrollbar-thumb {
+  background: #334155;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #B4A996;
+}
+.dark ::-webkit-scrollbar-thumb:hover {
+  background: #475569;
+}
